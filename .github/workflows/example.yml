@@ -1,0 +1,24 @@
+# This is a basic workflow that is manually triggered
+
+name: example
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  example:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Install the Build dependencies
+      run: |
+        sudo apt update -y
+        sudo apt install -y libunwind-dev
+        sudo apt install -y --no-install-recommends python3 libtirpc3 init     \
+        python3-pip ssh rsync lvm2 less software-properties-common             \
+        sudo curl wget git build-essential automake autoconf automake libtool  \
+        flex bison libssl-dev pkg-config uuid-dev acl-dev zlib1g-dev           \
+        libxml2-dev libxml2-utils liburcu-dev xfsprogs gdb attr                \
+        libgoogle-perftools-dev zfsutils-linux screen libsqlite3-dev sqlite3   \
+        debmake python3-debian debhelper dh-python                             \
+        libaio-dev libdb-dev libfuse-dev libibverbs-dev liblvm2-dev            \
+        libncurses5-dev librdmacm-dev libreadline-dev python3-all-dev
