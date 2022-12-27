@@ -6,23 +6,25 @@ pool:
 
 steps:
   - bash: |
-          curl https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz#sha256=68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2 --output PyYAML-6.-.tar.gz
-          echo "List files:"
-          ls
-          echo "-----------"
+        curl https://files.pythonhosted.org/packages/36/2b/61d51a2c4f25ef062ae3f74576b01638bebad5e045f747ff12643df63844/PyYAML-6.0.tar.gz#sha256=68fb519c14306fec9720a2a5b45bc9f0c8d1b9c72adf45c37baedfcd949c35a2 --output PyYAML-6.-.tar.gz
+        echo "List files:"
+        ls
+        echo "-----------"
     displayName: 'Download PyYAML'
+
   - bash: |
-          7z e PyYAML-6.-.tar.gz -y
-          tar -xf PyYAML-6.0.tar
-          echo "List files after unarchiving:"
-          ls
-          echo "-----------"
-          cd PyYAML-6.0
-          echo "List files in PyYAML-6.0:"
-          ls
-          echo "-----------"
-      displayName: 'Extract PyYAML sources'
-    - bash: |
-          cd PyYAML-6.0
-          python3 setup.py install
-      displayName: 'Run setup.py'
+        7z e PyYAML-6.-.tar.gz -y
+        tar -xf PyYAML-6.0.tar
+        echo "List files after unarchiving:"
+        ls
+        echo "-----------"
+        cd PyYAML-6.0
+        echo "List files in PyYAML-6.0:"
+        ls
+        echo "-----------"
+    displayName: 'Extract PyYAML sources'
+  
+  - bash: |
+        cd PyYAML-6.0
+        python3 setup.py install
+    displayName: 'Run setup.py'
